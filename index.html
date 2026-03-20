@@ -22,23 +22,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    h1 {
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin: 5px 0;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
     button {
       width: 100%;
       padding: 15px;
@@ -51,8 +34,18 @@
       border-radius: 5px;
     }
 
-    button:hover {
-      background: #333;
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .secondary {
+      background: #eee;
+      color: black;
     }
 
     .small {
@@ -69,28 +62,36 @@
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>🚗 Vehicle Information</h1>
+  <h1>🚗 Vehicle Information</h1>
 
-    <p><strong>Year:</strong> 2020</p>
-    <p><strong>Make:</strong> Toyota</p>
-    <p><strong>Model:</strong> Camry</p>
-    <p><strong>Mileage:</strong> 45,000 miles</p>
+  <p><strong>Year:</strong> 2020</p>
+  <p><strong>Make:</strong> Toyota</p>
+  <p><strong>Model:</strong> Camry</p>
+  <p><strong>Mileage:</strong> 45,000 miles</p>
+  <p><strong>Price:</strong> $18,500</p>
+  <p><strong>Location:</strong> Orlando, FL</p>
 
-    <hr>
+  <p style="color:#555; margin-top:10px;">
+    Serious inquiries only. This vehicle is currently available.
+  </p>
 
-    <h2>📱 Contact the Seller</h2>
-    <p>Enter your number and the seller will contact you soon.</p>
+  <hr>
 
-    <input type="tel" placeholder="Enter your phone number">
-    <button>Notify Seller</button>
+  <h2>📩 Get More Info</h2>
+  <p>Get photos, details, and vehicle history sent to your phone.</p>
 
-    <p class="small">
-      By submitting, you agree to be contacted by the seller.
-    </p>
+  <input type="tel" placeholder="Enter your phone number">
+  <button>Text Me the Details</button>
 
-  </div>
+  <button class="secondary">Or Tap to Text Seller Directly</button>
+
+  <p class="small">
+    By clicking, you agree to receive a one-time text regarding this vehicle. Msg & data rates may apply.
+  </p>
+
+</div>
 
 </body>
 </html>
