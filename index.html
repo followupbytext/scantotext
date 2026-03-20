@@ -22,18 +22,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    button {
-      width: 100%;
-      padding: 15px;
-      margin-top: 15px;
-      background: black;
-      color: white;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
     input {
       width: 100%;
       padding: 12px;
@@ -43,7 +31,19 @@
       font-size: 16px;
     }
 
-    .secondary {
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn-secondary {
       background: #eee;
       color: black;
     }
@@ -83,9 +83,16 @@
   <p>Get photos, details, and vehicle history sent to your phone.</p>
 
   <input type="tel" placeholder="Enter your phone number">
-  <button>Text Me the Details</button>
 
-  <button class="secondary">Or Tap to Text Seller Directly</button>
+  <!-- MAIN CTA -->
+  <a href="sms:+14075551234?body=Send%20me%20the%20details%20and%20photos%20for%20this%20vehicle" class="btn">
+    Text Me the Details
+  </a>
+
+  <!-- DIRECT TEXT OPTION -->
+  <a href="sms:+14075551234?body=Hi%2C%20I%27m%20interested%20in%20your%20vehicle.%20Is%20it%20still%20available%3F" class="btn btn-secondary">
+    Or Tap to Text Seller Directly
+  </a>
 
   <p class="small">
     By clicking, you agree to receive a one-time text regarding this vehicle. Msg & data rates may apply.
