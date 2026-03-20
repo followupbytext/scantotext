@@ -29,18 +29,19 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 16px;
+      text-align: center;
     }
 
-    .btn {
-      display: block;
+    button {
       width: 100%;
       padding: 15px;
       margin-top: 15px;
       background: black;
       color: white;
-      text-decoration: none;
-      border-radius: 5px;
+      border: none;
       font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
     .small {
@@ -61,11 +62,11 @@
 
   <h1>🚗 Vehicle Information</h1>
 
-  <p><strong>Year:</strong> 2020</p>
-  <p><strong>Make:</strong> Toyota</p>
-  <p><strong>Model:</strong> Camry</p>
+  <p><strong>Year:</strong> <span id="year">2020</span></p>
+  <p><strong>Make:</strong> <span id="make">Toyota</span></p>
+  <p><strong>Model:</strong> <span id="model">Camry</span></p>
   <p><strong>Mileage:</strong> 45,000 miles</p>
-  <p><strong>Price:</strong> $18,500</p>
+  <p><strong>Price:</strong> $<span id="price">18,500</span></p>
 
   <p style="color:#555; margin-top:10px;">
     Serious inquiries only. This vehicle is currently available.
@@ -76,17 +77,47 @@
   <h2>📩 Get More Info</h2>
   <p>Enter your phone number to get more information and details on this vehicle sent to your phone.</p>
 
-  <input type="tel" placeholder="Enter your phone number">
+  <input type="tel" id="buyerPhone" placeholder="Enter your phone number">
 
-  <a href="sms:+14075551234?body=Please%20send%20me%20the%20details%20and%20photos%20for%20this%20vehicle" class="btn">
-    Text Me the Details
-  </a>
+  <button onclick="sendMessage()">Message the Seller</button>
 
   <p class="small">
     By clicking, you agree to receive a one-time text regarding this vehicle. Msg & data rates may apply.
   </p>
 
 </div>
+
+<script>
+  // GET URL PARAMETERS
+  const params = new URLSearchParams(window.location.search);
+
+  const year = params.get('year') || "2020";
+  const make = params.get('make') || "Toyota";
+  const model = params.get('model') || "Camry";
+  const price = params.get('price') || "18,500";
+  const sellerPhone = params.get('phone') || "4075551234";
+
+  // UPDATE PAGE
+  document.getElementById('year').innerText = year;
+  document.getElementById('make').innerText = make;
+  document.getElementById('model').innerText = model;
+  document.getElementById('price').innerText = price;
+
+  function sendMessage() {
+    const buyerPhone = document.getElementById('buyerPhone').value;
+
+    if (!buyerPhone || buyerPhone.length < 10) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
+
+    const message = `Hi, I just scanned your ${year} ${make} ${model}. Can you send a few photos of the interior and dash, plus any details?`;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    window.location.href = `sms:${sellerPhone}?&body=${encodedMessage}`;
+  }
+</script>
 
 </body>
 </html>
