@@ -44,6 +44,12 @@
       cursor: pointer;
     }
 
+    .instruction-text {
+      font-size: 18px; /* Increased for mobile readability */
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
     .small {
       font-size: 12px;
       margin-top: 10px;
@@ -75,7 +81,10 @@
   <hr>
 
   <h2>📩 Get More Info</h2>
-  <p>Enter your phone number to get more information and details on this vehicle sent to your phone.</p>
+
+  <p class="instruction-text">
+    Enter your phone number to get more information and details on this vehicle sent to your phone.
+  </p>
 
   <input type="tel" id="buyerPhone" placeholder="Enter your phone number">
 
@@ -88,7 +97,6 @@
 </div>
 
 <script>
-  // GET URL PARAMETERS
   const params = new URLSearchParams(window.location.search);
 
   const year = params.get('year') || "2020";
@@ -97,7 +105,6 @@
   const price = params.get('price') || "18,500";
   const sellerPhone = params.get('phone') || "4075551234";
 
-  // UPDATE PAGE
   document.getElementById('year').innerText = year;
   document.getElementById('make').innerText = make;
   document.getElementById('model').innerText = model;
@@ -111,7 +118,7 @@
       return;
     }
 
-    const message = `Hi, I just scanned your ${year} ${make} ${model}. Can you send a few photos of the interior and dash, plus any details?`;
+    const message = `Hi, I just scanned your ${year} ${make} ${model}. Can you send a few photos of the interior and dash, plus any details? Thanks.`;
 
     const encodedMessage = encodeURIComponent(message);
 
