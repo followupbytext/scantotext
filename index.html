@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>ScanToText</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,6 +12,7 @@
       padding: 40px;
       background: #f7f7f7;
     }
+
     .container {
       max-width: 500px;
       margin: auto;
@@ -19,44 +21,76 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     h1 {
-      font-size: 28px;
+      margin-bottom: 10px;
     }
+
     p {
-      font-size: 18px;
-      margin: 20px 0;
+      margin: 5px 0;
     }
-    input, button {
+
+    input {
       width: 100%;
-      padding: 15px;
-      margin-top: 10px;
+      padding: 12px;
+      margin-top: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
       font-size: 16px;
     }
+
     button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
       background: black;
       color: white;
       border: none;
+      font-size: 16px;
       cursor: pointer;
+      border-radius: 5px;
     }
+
     button:hover {
       background: #333;
     }
+
+    .small {
+      font-size: 12px;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    hr {
+      margin: 25px 0;
+    }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>📱 Text the Seller Instantly</h1>
-  <p>Enter your number and the seller will contact you right away.</p>
+  <div class="container">
 
-  <input type="tel" placeholder="Enter your phone number">
+    <h1>🚗 Vehicle Information</h1>
 
-  <button>Notify Seller</button>
+    <p><strong>Year:</strong> 2020</p>
+    <p><strong>Make:</strong> Toyota</p>
+    <p><strong>Model:</strong> Camry</p>
+    <p><strong>Mileage:</strong> 45,000 miles</p>
 
-  <p style="font-size:12px; margin-top:20px;">
-    By submitting, you agree to be contacted by the seller.
-  </p>
-</div>
+    <hr>
+
+    <h2>📱 Contact the Seller</h2>
+    <p>Enter your number and the seller will contact you soon.</p>
+
+    <input type="tel" placeholder="Enter your phone number">
+    <button>Notify Seller</button>
+
+    <p class="small">
+      By submitting, you agree to be contacted by the seller.
+    </p>
+
+  </div>
 
 </body>
 </html>
