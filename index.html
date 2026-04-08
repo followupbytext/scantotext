@@ -1,129 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ScanToText</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Vehicle Information</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
-      background: #f7f7f7;
-    }
+<style>
 
-    .container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px 20px;
+  background: #f7f7f7;
+}
 
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      text-align: center;
-    }
+.container {
+  max-width: 520px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
 
-    button {
-      width: 100%;
-      padding: 15px;
-      margin-top: 15px;
-      background: black;
-      color: white;
-      border: none;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
 
-    .instruction-text {
-      font-size: 18px; /* Increased for mobile readability */
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
+.vehicle-details {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
 
-    .small {
-      font-size: 12px;
-      margin-top: 10px;
-      color: #555;
-    }
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+}
 
-    hr {
-      margin: 25px 0;
-    }
-  </style>
+.notice {
+  color: #555;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 18px;
+  margin-top: 18px;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.small {
+  font-size: 12px;
+  margin-top: 25px;
+  color: #777;
+}
+
+hr {
+  margin: 30px 0;
+}
+
+</style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>🚗 Vehicle Information</h1>
+<h1>🚗 Vehicle Information</h1>
 
-  <p><strong>Year:</strong> <span id="year">2020</span></p>
-  <p><strong>Make:</strong> <span id="make">Toyota</span></p>
-  <p><strong>Model:</strong> <span id="model">Camry</span></p>
-  <p><strong>Mileage:</strong> 45,000 miles</p>
-  <p><strong>Price:</strong> $<span id="price">18,500</span></p>
+<div class="vehicle-details">
 
-  <p style="color:#555; margin-top:10px;">
-    Serious inquiries only. This vehicle is currently available.
-  </p>
+<strong>Vehicle:</strong><br>
+2016 GMC Savana Explorer Presidential Edition
 
-  <hr>
+<br><br>
 
-  <h2>📩 Get More Info</h2>
+<strong>Mileage:</strong><br>
+126,000 miles
 
-  <p class="instruction-text">
-    Enter your phone number to get more information and details on this vehicle sent to your phone.
-  </p>
+<br><br>
 
-  <input type="tel" id="buyerPhone" placeholder="Enter your phone number">
+<strong>Price:</strong>
 
-  <button onclick="sendMessage()">Message the Seller</button>
+<div class="price">
+$29,500
+</div>
 
-  <p class="small">
-    By clicking, you agree to receive a one-time text regarding this vehicle. Msg & data rates may apply.
-  </p>
+</div>
+
+<p class="notice">
+Serious inquiries only. This vehicle is currently available.
+</p>
+
+<hr>
+
+<h2>📩 Get More Information</h2>
+
+<p>
+Enter your phone number to get more information and details on this vehicle sent to your phone by text.
+</p>
+
+<input type="tel"
+       id="buyerPhone"
+       placeholder="Enter your phone number">
+
+<button onclick="sendMessage()">
+Message the Seller
+</button>
+
+<p class="small">
+By clicking, you agree to receive texts regarding this vehicle. Message and data rates may apply.
+</p>
+
+<p class="small">
+Powered by FollowUpByText.com
+</p>
 
 </div>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
 
-  const year = params.get('year') || "2020";
-  const make = params.get('make') || "Toyota";
-  const model = params.get('model') || "Camry";
-  const price = params.get('price') || "18,500";
-  const sellerPhone = params.get('phone') || "4075551234";
+function sendMessage() {
 
-  document.getElementById('year').innerText = year;
-  document.getElementById('make').innerText = make;
-  document.getElementById('model').innerText = model;
-  document.getElementById('price').innerText = price;
+const buyerPhone =
+document.getElementById("buyerPhone").value;
 
-  function sendMessage() {
-    const buyerPhone = document.getElementById('buyerPhone').value;
+if (!buyerPhone || buyerPhone.length < 10) {
+alert("Please enter a valid phone number.");
+return;
+}
 
-    if (!buyerPhone || buyerPhone.length < 10) {
-      alert("Please enter a valid phone number.");
-      return;
-    }
+const message =
+"Hi, I just scanned your vehicle and would like more details. Can you send interior photos, condition details, and availability? Thanks.";
 
-    const message = `Hi, I just scanned your ${year} ${make} ${model}. Can you send a few photos of the interior and dash, plus any details? Thanks.`;
+const encodedMessage =
+encodeURIComponent(message);
 
-    const encodedMessage = encodeURIComponent(message);
+window.location.href =
+`sms:17024273565?&body=${encodedMessage}`;
 
-    window.location.href = `sms:${sellerPhone}?&body=${encodedMessage}`;
-  }
+}
+
 </script>
 
 </body>
