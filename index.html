@@ -27,7 +27,7 @@ body {
 h1 {
     font-size: 32px;
     font-weight: bold;
-    color: #0b6623; /* Dark Green */
+    color: #0b6623;
     letter-spacing: 1px;
     margin-bottom: 10px;
 }
@@ -68,20 +68,11 @@ hr {
     margin-bottom: 15px;
 }
 
-input {
-    width: 90%;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-}
-
 button {
     background: black;
     color: white;
-    padding: 14px;
-    font-size: 16px;
+    padding: 16px;
+    font-size: 18px;
     border: none;
     border-radius: 8px;
     width: 90%;
@@ -143,17 +134,11 @@ Get More Information
 </div>
 
 <div class="instruction-text">
-Enter your phone number to get more information and details on this vehicle sent to your phone by text.
+Tap the button below to text the seller directly for more details about this vehicle.
 </div>
 
-<input
-id="buyerPhone"
-type="tel"
-placeholder="Enter your phone number"
-/>
-
 <button onclick="sendText()">
-Message the Seller
+Text Seller for Details
 </button>
 
 <div class="small">
@@ -170,19 +155,8 @@ Powered by FollowUpByText.com
 
 function sendText() {
 
-const buyerPhone =
-document.getElementById("buyerPhone").value;
-
-if (!buyerPhone || buyerPhone.length < 10) {
-
-alert("Please enter a valid phone number.");
-
-return;
-
-}
-
 const message =
-"Hi, I just scanned your 2016 GMC Savana Explorer Presidential Edition and would like more details. Can you send interior photos and condition details? Thanks.";
+"Hi, I just scanned your 2016 GMC Savana Explorer Presidential Edition and would like more details about the vehicle.";
 
 const encodedMessage =
 encodeURIComponent(message);
