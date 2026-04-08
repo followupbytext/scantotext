@@ -2,169 +2,198 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Vehicle Information</title>
+<title>For Sale</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 50px 20px;
-  background: #f7f7f7;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background: #f7f7f7;
 }
 
 .container {
-  max-width: 520px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #0b6623; /* Dark Green */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
-.vehicle-details {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-top: 15px;
+.vehicle {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.label {
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 .price {
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 5px;
 }
 
-.notice {
-  color: #555;
-  margin-top: 10px;
-}
-
-input {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  text-align: center;
-}
-
-button {
-  width: 100%;
-  padding: 18px;
-  margin-top: 18px;
-  background: black;
-  color: white;
-  border: none;
-  font-size: 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-.small {
-  font-size: 12px;
-  margin-top: 25px;
-  color: #777;
+.note {
+    color: gray;
+    margin-top: 15px;
 }
 
 hr {
-  margin: 30px 0;
+    margin: 20px 0;
+}
+
+.getinfo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.instruction-text {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+button {
+    background: black;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    width: 90%;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333;
+}
+
+.small {
+    font-size: 12px;
+    color: gray;
+    margin-top: 15px;
+}
+
+.footer {
+    font-size: 11px;
+    color: gray;
+    margin-top: 20px;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>🚗 Vehicle Information</h1>
+<h1>FOR SALE</h1>
 
-<div class="vehicle-details">
+<div class="vehicle">
 
-<strong>Vehicle:</strong><br>
-2016 GMC Savana Explorer Presidential Edition
+<div class="label">Vehicle:</div>
 
-<br><br>
+2016 GMC Savana Explorer  
+Presidential Edition
 
-<strong>Mileage:</strong><br>
+<div class="label">Mileage:</div>
+
 126,000 miles
 
-<br><br>
-
-<strong>Price:</strong>
+<div class="label">Price:</div>
 
 <div class="price">
 $29,500
 </div>
 
+<div class="note">
+Serious inquiries only. This vehicle is currently available.
 </div>
 
-<p class="notice">
-Serious inquiries only. This vehicle is currently available.
-</p>
+</div>
 
 <hr>
 
-<h2>📩 Get More Information</h2>
+<div class="getinfo">
+Get More Information
+</div>
 
-<p>
+<div class="instruction-text">
 Enter your phone number to get more information and details on this vehicle sent to your phone by text.
-</p>
+</div>
 
-<input type="tel"
-       id="buyerPhone"
-       placeholder="Enter your phone number">
+<input
+id="buyerPhone"
+type="tel"
+placeholder="Enter your phone number"
+/>
 
-<button onclick="sendMessage()">
+<button onclick="sendText()">
 Message the Seller
 </button>
 
-<p class="small">
+<div class="small">
 By clicking, you agree to receive texts regarding this vehicle. Message and data rates may apply.
-</p>
+</div>
 
-<p class="small">
+<div class="footer">
 Powered by FollowUpByText.com
-</p>
+</div>
 
 </div>
 
 <script>
 
-function sendMessage() {
+function sendText() {
 
 const buyerPhone =
 document.getElementById("buyerPhone").value;
 
 if (!buyerPhone || buyerPhone.length < 10) {
+
 alert("Please enter a valid phone number.");
+
 return;
+
 }
 
 const message =
-"Hi, I just scanned your vehicle and would like more details. Can you send interior photos, condition details, and availability? Thanks.";
+"Hi, I just scanned your 2016 GMC Savana Explorer Presidential Edition and would like more details. Can you send interior photos and condition details? Thanks.";
 
 const encodedMessage =
 encodeURIComponent(message);
 
 window.location.href =
-`sms:17024273565?&body=${encodedMessage}`;
+`sms:17024273565?body=${encodedMessage}`;
 
 }
 
 </script>
 
 </body>
+
 </html>
