@@ -102,7 +102,14 @@ button:hover {
     margin-top: 20px;
 }
 
-/* NEW — faint bottom-left counter */
+.footer a {
+    color: gray;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
 
 .counter {
     position: fixed;
@@ -169,12 +176,13 @@ By clicking, you agree to receive texts regarding this vehicle. Message and data
 </div>
 
 <div class="footer">
-Powered by FollowUpByText.com
+Powered by
+<a href="https://scan.followupbytext.com" target="_blank">
+scan.followupbytext.com
+</a>
 </div>
 
 </div>
-
-<!-- NEW COUNTER DISPLAY -->
 
 <div id="scanCounter" class="counter">
 24h: 0 | Total: 0
@@ -195,16 +203,12 @@ window.location.href =
 
 }
 
-/* Hide highlight if empty */
-
 const highlight =
 document.getElementById("sellerHighlight");
 
 if (!highlight.innerText.trim()) {
     highlight.style.display = "none";
 }
-
-/* UNIQUE SCAN COUNTER LOGIC */
 
 const TOTAL_KEY =
 "gmc_savana_total";
