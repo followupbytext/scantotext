@@ -93,7 +93,14 @@ h1 {
     margin-top: 10px;
 }
 
-/* Bottom-left faint counter */
+.powered a {
+    color: gray;
+    text-decoration: none;
+}
+
+.powered a:hover {
+    text-decoration: underline;
+}
 
 .counter {
     position: fixed;
@@ -160,20 +167,19 @@ By clicking, you agree to receive texts regarding this vehicle. Message and data
 </div>
 
 <div class="powered">
-Powered by FollowUpByText.com
+Powered by
+<a href="https://scan.followupbytext.com" target="_blank">
+scan.followupbytext.com
+</a>
 </div>
 
 </div>
-
-<!-- COUNTER DISPLAY -->
 
 <div id="scanCounter" class="counter">
 24h: 0 | Total: 0
 </div>
 
 <script>
-
-/* Unique scan counter */
 
 const TOTAL_KEY =
 "bolt_total";
@@ -204,7 +210,6 @@ const HOURS_24 =
 if (!lastVisit || now - lastVisit > HOURS_24) {
 
 total++;
-
 todayCount = 1;
 
 localStorage.setItem(
