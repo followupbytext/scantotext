@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <title>For Sale</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -90,7 +92,20 @@ h1 {
     color: gray;
     margin-top: 10px;
 }
+
+/* Bottom-left faint counter */
+
+.counter {
+    position: fixed;
+    bottom: 8px;
+    left: 10px;
+    font-size: 11px;
+    color: rgba(0,0,0,0.25);
+    font-family: Arial, sans-serif;
+}
+
 </style>
+
 </head>
 
 <body>
@@ -100,11 +115,13 @@ h1 {
 <h1>FOR SALE</h1>
 
 <div class="label">Vehicle:</div>
+
 <div class="value">
-2020 Chevy Bolt Premier
+2020 Chevy Bolt EV-Premier
 </div>
 
 <div class="label">Mileage:</div>
+
 <div class="value">
 94,000 miles
 </div>
@@ -114,6 +131,7 @@ One owner, runs great, 100% electric, save on gas
 </div>
 
 <div class="label">Price:</div>
+
 <div class="price">
 $11,700
 </div>
@@ -133,7 +151,7 @@ Tap the button below to text the seller directly for more details about this veh
 </div>
 
 <a class="button"
-href="sms:7024273565?body=Hi,%20I%20just%20scanned%20your%202020%20Chevy%20Bolt%20Premier%20and%20would%20like%20more%20details%20about%20the%20vehicle.">
+href="sms:7024273565?body=Hi,%20I%20just%20scanned%20your%202020%20Chevy%20Bolt%20EV-Premier%20and%20would%20like%20more%20details%20about%20the%20vehicle.">
 Text Seller for Details
 </a>
 
@@ -146,6 +164,76 @@ Powered by FollowUpByText.com
 </div>
 
 </div>
+
+<!-- COUNTER DISPLAY -->
+
+<div id="scanCounter" class="counter">
+24h: 0 | Total: 0
+</div>
+
+<script>
+
+/* Unique scan counter */
+
+const TOTAL_KEY =
+"bolt_total";
+
+const LAST_KEY =
+"bolt_last_visit";
+
+const TODAY_KEY =
+"bolt_today";
+
+function updateCounter() {
+
+let total =
+parseInt(localStorage.getItem(TOTAL_KEY)) || 0;
+
+let lastVisit =
+parseInt(localStorage.getItem(LAST_KEY)) || 0;
+
+let todayCount =
+parseInt(localStorage.getItem(TODAY_KEY)) || 0;
+
+const now =
+Date.now();
+
+const HOURS_24 =
+24 * 60 * 60 * 1000;
+
+if (!lastVisit || now - lastVisit > HOURS_24) {
+
+total++;
+
+todayCount = 1;
+
+localStorage.setItem(
+TOTAL_KEY,
+total
+);
+
+localStorage.setItem(
+LAST_KEY,
+now
+);
+
+localStorage.setItem(
+TODAY_KEY,
+todayCount
+);
+
+}
+
+document.getElementById(
+"scanCounter"
+).innerText =
+`24h: ${todayCount} | Total: ${total}`;
+
+}
+
+updateCounter();
+
+</script>
 
 </body>
 </html>
