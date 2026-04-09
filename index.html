@@ -34,18 +34,24 @@ h1 {
 
 .vehicle {
     font-size: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .label {
     font-weight: bold;
-    margin-top: 15px;
+    margin-top: 12px;
+}
+
+.highlight {
+    font-size: 16px;
+    color: #333;
+    margin-top: 12px;
 }
 
 .price {
     font-size: 32px;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .note {
@@ -115,6 +121,12 @@ Presidential Edition
 
 126,000 miles
 
+<!-- SELLER HIGHLIGHT -->
+
+<div id="sellerHighlight" class="highlight">
+Runs great, ice-cold AC, non-smoker
+</div>
+
 <div class="label">Price:</div>
 
 <div class="price">
@@ -164,6 +176,15 @@ encodeURIComponent(message);
 window.location.href =
 `sms:17024273565?body=${encodedMessage}`;
 
+}
+
+// Auto-hide highlight if empty
+
+const highlight =
+document.getElementById("sellerHighlight");
+
+if (!highlight.innerText.trim()) {
+    highlight.style.display = "none";
 }
 
 </script>
